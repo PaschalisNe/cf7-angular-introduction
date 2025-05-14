@@ -14,23 +14,24 @@ import { EPerson } from 'src/app/shared/interfaces/eperson';
   styleUrl: './eperson-template-driven-form.component.css'
 })
 export class EpersonTemplateDrivenFormComponent {
-  @ViewChild('eForm', {static: false}) form: NgForm | undefined
-  @Output() person = new EventEmitter<EPerson>()
+  @ViewChild('eForm', { static: false }) myform: NgForm | undefined;
+  @Output() person = new EventEmitter<EPerson>();
   
   onSubmit(value: EPerson) {
     console.log(value);
-    console.log(this.form);
-    console.log(this.form?.form.get('givenName')?.value);
+    console.log(this.myform);
+    console.log(this.myform?.form.get('givenName')?.value);
     this.person.emit(value);
   }
 
   onSetValue() {
-    this.form?.setValue({
+    this.myform?.setValue({
     givenName: "John",
     surName: "Doe",
     age: 30,
     email: "john@aueb.gr",
-    education: "Bachelor's degree"
-  })
+    education: "Master's degree"
+  });
+  this.myform?.form.controls["givenName"].setValue("Milos")
   }
 }

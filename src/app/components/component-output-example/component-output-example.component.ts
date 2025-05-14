@@ -61,7 +61,7 @@ export class ComponentOutputExampleComponent {
         <td class="ps-2">{{person.education}}</td>
       </tr>
     </table>
-    <button class="btn btn-primary btn-sm" (click)="DialogRef.close()">Close</button>
+    <button class="btn btn-primary btn-sm" (click)="dialogRef.close()">Close</button>
     `,
   
   styles: [
@@ -77,7 +77,7 @@ export class ComponentOutputExampleComponent {
   ]
 })
 export class PersonDialogComponent {
-  DialogRef = inject(DialogRef);
+  dialogRef = inject(DialogRef);
   constructor(
     @Inject(DIALOG_DATA) public person: EPerson
 ){}

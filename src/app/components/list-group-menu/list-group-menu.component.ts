@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+
 @Component({
   selector: 'app-list-group-menu',
   imports: [RouterLink, RouterLinkActive],
@@ -13,7 +14,8 @@ export class ListGroupMenuComponent {
     {text: '@for Directive Example', linkName: 'for-directive-example'},
     {text: 'Event-Bind-Example', linkName: 'event-bind-example'},
     {text: 'Simple DataTable Example', linkName: 'simple-datatable-example'},
-    {text: 'Template Driven Form Example', linkName: 'template-driven-form-example'}
+    {text: 'Template Driven Form Example', linkName: 'template-driven-form-example'},
+    {text: 'Reactive Form Example', linkName: 'reactive-form-example'}
   ]
 
 }

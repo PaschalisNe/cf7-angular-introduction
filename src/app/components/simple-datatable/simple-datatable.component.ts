@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { EPerson } from 'src/app/shared/interfaces/eperson';
 import { sortBy } from 'lodash-es';
 
@@ -11,7 +11,19 @@ import { sortBy } from 'lodash-es';
 })
 export class SimpleDatatableComponent {
 @Input() data: EPerson[] | undefined;
+@Input() myData: boolean = true;       // only for display purposes, not actual use 
 @Output() personClicked = new EventEmitter<EPerson>()
+
+epersonsData: EPerson[] = []          // αντικατεστησαto your loved one | undifined με = []
+
+ngOnChanges(changes: SimpleChanges) {
+  if(changes['data'] && this.data) {
+  this.epersonsData = this.data
+}
+if(changes['myData']) {
+  // this.myFunction()
+}
+}
 
 sortOrder = {
   givenName: 'none',
@@ -22,15 +34,16 @@ sortOrder = {
 }
 
 sortData(sortKey: keyof EPerson): void {
-  console.log(sortKey);
+  // console.log(sortKey);
+  // this.epersonsData = this.data
 
   if(this.sortOrder[sortKey] === 'asc') {
     this.sortOrder[sortKey] = 'desc'
-    this.data = sortBy(this.data, sortKey).reverse();
+    this.epersonsData = sortBy(this.data, sortKey).reverse();
   
   } else {
     this.sortOrder[sortKey] = 'asc';
-    this.data = sortBy(this.data, sortKey);
+    this.epersonsData = sortBy(this.data, sortKey);
   }
 
   for(let key in this.sortOrder) {
@@ -38,7 +51,7 @@ sortData(sortKey: keyof EPerson): void {
       this.sortOrder[key as keyof EPerson] = 'none'
     }
   }
-  console.log(this.sortOrder)
+  console.log('Simple DataTable',this.data)
 }
 
 sortSign(sortKey: keyof EPerson) : string {

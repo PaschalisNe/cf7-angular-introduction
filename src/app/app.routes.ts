@@ -6,6 +6,7 @@ import { ComponentInputExampleComponent } from './components/component-input-exa
 import { SimpleDatatableExampleComponent } from './components/simple-datatable-example/simple-datatable-example.component';
 import { ComponentOutputExampleComponent } from './components/component-output-example/component-output-example.component';
 import { TemplateDrivenFormExampleComponent } from './components/template-driven-form-example/template-driven-form-example.component';
+import { ReactiveFormExampleComponent } from './components/reactive-form-example/reactive-form-example.component';
 
 export const routes: Routes = [
    {path: 'welcome', component: WelcomeComponent},
@@ -15,5 +16,6 @@ export const routes: Routes = [
    {path: 'component-input-example', component: ComponentInputExampleComponent},
    {path: 'template-driven-form-example', component: TemplateDrivenFormExampleComponent},
    {path: '', redirectTo: '/welcome', pathMatch: 'full'},
-   {path: 'simple-datatable-example', component: SimpleDatatableExampleComponent}
+   {path: 'simple-datatable-example', component: SimpleDatatableExampleComponent},
+   {path: 'reactive-form-example', component: ReactiveFormExampleComponent}
 ];
